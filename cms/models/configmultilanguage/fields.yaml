@@ -1,0 +1,38 @@
+fields:
+    language_package_m:
+        label: 'longbang.cms::lang.longbang_cms_config_multilanguage.language_package_m'
+        span: auto
+        default: locale
+        type: text
+    language_m:
+        label: 'longbang.cms::lang.longbang_cms_config_multilanguage.language_m'
+        span: auto
+        default: language
+        type: text
+    currency_m:
+        label: 'longbang.cms::lang.longbang_cms_config_multilanguage.currency_m'
+        span: auto
+        default: currency
+        type: text
+    set_language_c:
+        label: 'longbang.cms::lang.longbang_cms_config_multilanguage.set_language_c'
+        span: auto
+        default: translator
+        type: text
+    set_currency_c:
+        label: 'longbang.cms::lang.longbang_cms_config_multilanguage.set_currency_c'
+        span: auto
+        default: currencies
+        type: text
+    get_lang_mode:
+        label: 'longbang.cms::lang.longbang_cms_config_multilanguage.get_lang_mode'
+        options:
+            - 根据浏览器第一语言
+            - 根据ip如失败在根据浏览器
+        span: left
+        type: radio
+    is_enabled:
+        label: 'longbang.cms::lang.longbang_cms_config_multilanguage.is_enabled'
+        span: left
+        default: 1
+        type: switch

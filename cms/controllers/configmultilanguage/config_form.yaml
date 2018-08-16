@@ -1,0 +1,10 @@
+name: ConfigMultilanguage
+form: $/longbang/cms/models/configmultilanguage/fields.yaml
+modelClass: Longbang\Cms\Models\ConfigMultilanguage
+defaultRedirect: longbang/cms/configmultilanguage
+create:
+    redirect: 'longbang/cms/configmultilanguage/update/:id'
+    redirectClose: longbang/cms/configmultilanguage
+update:
+    redirect: longbang/cms/configmultilanguage
+    redirectClose: longbang/cms/configmultilanguage

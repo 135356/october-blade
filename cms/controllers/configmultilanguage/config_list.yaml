@@ -1,0 +1,12 @@
+list: $/longbang/cms/models/configmultilanguage/columns.yaml
+modelClass: Longbang\Cms\Models\ConfigMultilanguage
+title: ConfigMultilanguage
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'longbang/cms/configmultilanguage/update/:id'

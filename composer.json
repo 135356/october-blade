@@ -1,0 +1,20 @@
+{
+    "name": "longbang/octobercms_blade",
+    "description": "OctoberCMS下使用blade视图扩展包",
+    "keywords": ["龙邦","blade","OctoberCMS"],
+    "license": "Apache-2.0",
+    "authors":[{
+        "name":"Long Bang",
+        "email":"454595025@qq.com"
+    }],
+    "require": {
+        "php": ">=7.0",
+        "geoip2/geoip2": "~2.0"
+    },
+    "autoload": {
+        "psr-4":{
+            "Blade\\": "blade/",
+            "Cms\\": "cms/"
+        }
+    }
+}

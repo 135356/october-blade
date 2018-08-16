@@ -1,0 +1,52 @@
+<link rel="icon" type="image/png" href="https://martasa.com/modules/backend/assets/images/favicon.png">
+<link href="https://martasa.com/modules/system/assets/ui/storm.css?v419" rel="stylesheet">
+<link href="https://martasa.com/modules/backend/assets/css/october.css?v419" rel="stylesheet">
+<link rel="stylesheet" href="https://martasa.com/modules/cms/widgets/mediamanager/assets/css/mediamanager.css?v419">
+<link rel="stylesheet" href="https://martasa.com/plugins/jason/ccshop/assets/css/custom.css?v1.8.4">
+<link rel="stylesheet" href="https://martasa.com/plugins/jason/ccshop/assets/css/selectize.css?v1.8.4">
+<link rel="stylesheet" type="text/css" href="https://martasa.com/_debugbar/assets/stylesheets?1500619559">
+<style>
+    .br-p{color:#34495e}.br-s{color:#34495e}.br-a{color:#34495e}.br-p-s10{color:#2d4965}.br-s-s10{color:#2d4965}.br-a-s10{color:#2d4965}.br-p-s20{color:#25496d}.br-s-s20{color:#25496d}.br-a-s20{color:#25496d}.bg-p{background-color:#34495e}.bg-s{background-color:#34495e}.bg-a{background-color:#34495e}.bg-p-s10{background-color:#2d4965}.bg-s-s10{background-color:#2d4965}.bg-a-s10{background-color:#2d4965}.bg-p-s20{background-color:#25496d}.bg-s-s20{background-color:#25496d}.bg-a-s20{background-color:#25496d}#layout-sidenav ul li a .nav-label,#layout-sidenav ul li a .nav-icon{text-shadow:0 -1px 0 rgba(16,22,28,.6)}.sidenav-tree ul.top-level>li>div.group:before{border-top-color:#34495e}.sidenav-tree ul.top-level>li>ul li.active{border-color:#34495e}body.outer{background:#293e53}table.table.data tbody tr.active td:first-child{border-left:3px solid #34495e}.fancy-layout .form-tabless-fields{background:#34495e}.fancy-layout .form-tabless-fields .loading-indicator-container .loading-indicator{background:#34495e}.fancy-layout .control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li.active a>span.title,.fancy-layout.control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li.active a>span.title,.fancy-layout .control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li.active a>span.title:before,.fancy-layout.control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li.active a>span.title:before,.fancy-layout .control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li.active a>span.title:after,.fancy-layout.control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li.active a>span.title:after{background:#34495e}.fancy-layout .control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li a>span.title,.fancy-layout.control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li a>span.title,.fancy-layout .control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li a>span.title:before,.fancy-layout.control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li a>span.title:before,.fancy-layout .control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li a>span.title:after,.fancy-layout.control-tabs.master-tabs>div>div.tabs-container>ul.nav-tabs>li a>span.title:after{background-color:#1a324b}.fancy-layout .control-tabs.master-tabs>div>div.tabs-container,.fancy-layout.control-tabs.master-tabs>div>div.tabs-container{background-color:#1c3751}.fancy-layout .control-tabs.primary-tabs>div>ul.nav-tabs.master-area,.fancy-layout.control-tabs.primary-tabs>div>ul.nav-tabs.master-area{background:#34495e}.fancy-layout .control-tabs.secondary-tabs.secondary-content-tabs.primary-collapsed>div>ul.nav-tabs,.fancy-layout.control-tabs.secondary-tabs.secondary-content-tabs.primary-collapsed>div>ul.nav-tabs{background:#34495e}.control-filelist ul li.active>a:after{background:#34495e}div.control-componentlist.droppable{background-color:#587ca0}.stripe-loading-indicator .stripe,.stripe-loading-indicator .stripe-loaded{background:#34495e}
+</style>
+<div class="slim-container has-sidenav-tree" style="padding-bottom:30px">
+    <div id="layout-canvas">
+        <div class="layout">
+            <div class="layout-row min-size">
+                <nav class="navbar control-toolbar navbar-mode-inline" id="layout-mainmenu" role="navigation">
+                    <div class="toolbar-item toolbar-primary">
+                        <div data-control="toolbar" data-disposable="">
+                            <a class="menu-toggle" href="javascript:;"><span class="menu-toggle-icon"><i class="icon-bars"></i></span><span class="menu-toggle-title">Catalog</span></a>
+                            <ul class="nav mainmenu-nav">
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/backend"><span class="nav-icon"><img class="svg-icon" src="https://martasa.com/modules/backend/assets/images/dashboard-icon.svg"><i class="svg-replace icon-dashboard"></i></span><span class="nav-label">仪表盘</span></a></li>
+                                <li class="active svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/jason/ccshop/products"><span class="nav-icon"><i class="icon-gift"></i></span><span class="nav-label">Catalog</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/jason/ccshop/orders"><span class="nav-icon"><i class="icon-usd"></i></span><span class="nav-label">订单&amp;货币</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/cms"><span class="nav-icon"><img class="svg-icon" src="https://martasa.com/modules/cms/assets/images/cms-icon.svg"><i class="svg-replace icon-magic"></i></span><span class="nav-label">CMS</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/cms/media"><span class="nav-icon"><img class="svg-icon" src="https://martasa.com/modules/cms/assets/images/media-icon.svg"><i class="svg-replace icon-folder"></i></span><span class="nav-label">媒体</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/rainlab/pages"><span class="nav-icon"><img class="svg-icon" src="https://martasa.com/plugins/rainlab/pages/assets/images/pages-icon.svg"><i class="svg-replace icon-files-o"></i></span><span class="nav-label">Pages</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/rainlab/blog/posts"><span class="nav-icon"><img class="svg-icon" src="https://martasa.com/plugins/rainlab/blog/assets/images/blog-icon.svg"><i class="svg-replace icon-pencil"></i></span><span class="nav-label">Blog</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/rainlab/user/users"><span class="nav-icon"><img class="svg-icon" src="https://martasa.com/plugins/rainlab/user/assets/images/user-icon.svg"><i class="svg-replace icon-user"></i></span><span class="nav-label">用户</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="/Pv4QZMrjaswXxkCG/languages/Index/index"><span class="nav-icon"><i class="icon-pencil"></i></span><span class="nav-label">LongBang</span></a></li>
+                                <li class="svg-icon-container svg-active-effects"><a href="https://martasa.com/Pv4QZMrjaswXxkCG/system/settings"><span class="nav-icon"><img class="svg-icon" src="https://martasa.com/modules/system/assets/images/cog-icon.svg"><i class="svg-replace icon-cog"></i></span><span class="nav-label">设置</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="toolbar-item" data-calculate-width="" style="width:143px">
+                        <ul class="mainmenu-toolbar">
+                            <li class="mainmenu-preview with-tooltip"><a href="https://martasa.com" target="_blank" title="" data-original-title="预览网站"><i class="icon-crosshairs"></i></a></li>
+                            <li class="mainmenu-account"><a href="javascript:;" onclick="$.oc.layout.toggleAccountMenu(this)"><span class="account-name hidden-xs"></span><img src="//www.gravatar.com/avatar/c214eb960e32fa01c8b36f0d1de4d575?s=90&amp;d=mm" class="account-avatar"></a>
+                                <div class="mainmenu-accountmenu">
+                                    <ul>
+                                        <li><a href="https://martasa.com/Pv4QZMrjaswXxkCG/backend/users/myaccount">我的账户</a></li>
+                                        <li><a href="https://martasa.com/Pv4QZMrjaswXxkCG/backend/preferences">后台设置</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="https://martasa.com/Pv4QZMrjaswXxkCG/backend/auth/signout">登出</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
