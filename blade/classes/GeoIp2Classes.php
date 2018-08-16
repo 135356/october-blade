@@ -52,9 +52,7 @@ class GeoIp2Classes extends CommonClasses
             //$ip = '222.10.200.200';
         }
         $data = array('ip'=>null,'code'=>null,'country'=>null,'province'=>null,'city'=>null,'postcode'=>null,'state'=>null);
-        //if(empty($ip)||$ip == '127.0.0.1'){return $data;}
-        $reader = new Reader();
-        return 0;
+        if(empty($ip)||$ip == '127.0.0.1'){return $data;}
         $reader = new Reader(VcPathClasses::tempDB_path('geoIp/GeoLite2-'.$type.'.zip'));//Redis::set('Reader',$reader);
         $record = $reader->$type($ip);
         /*

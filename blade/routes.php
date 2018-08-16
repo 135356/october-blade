@@ -40,15 +40,18 @@ Route::group(['prefix'=>'languages','namespace'=>namespace_route()],function(){
     Route::get('/setLanguage', function(){
         $get = $_GET;
         if(isset($get['language'])){
-            $data = LanguageController::setLanguage($get['language'],'language','obj');
+            $data = LanguageController::setLanguage($get['language'],'language');
         }else if(isset($get['currency'])){
-            $data = LanguageController::setLanguage($get['currency'],'currency','obj');
+            $data = LanguageController::setLanguage($get['currency'],'currency');
         }else if(isset($get['ip'])){
             $get['ip'] = $get['ip']!=1?$get['ip']:'';
-            $data = LanguageController::setLanguage($get['ip'],'ip','obj');
+            $data = LanguageController::setLanguage($get['ip'],'ip');
         }else if(isset($get['browser'])){
             $get['browser'] = $get['browser']!=1?$get['browser']:'';
-            $data = LanguageController::setLanguage($get['browser'],'browser','obj');
+            $data = LanguageController::setLanguage($get['browser'],'browser');
+        }else{
+            $get['browser'] = isset($get['browser'])?$get['browser']:'';
+            $data = LanguageController::setLanguage($get['browser'],'browser');
         }
         if(isset($get['test'])){
             dump($data->setLanguage);
