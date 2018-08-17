@@ -1,0 +1,41 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        invisible: true
+        sortable: true
+    language_package_m:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.language_package_m'
+        type: text
+        searchable: true
+        sortable: false
+    language_m:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.language_m'
+        type: text
+        searchable: true
+        sortable: false
+    currency_m:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.currency_m'
+        type: text
+        searchable: true
+    set_language_c:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.set_language_c'
+        type: text
+        searchable: true
+    set_currency_c:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.set_currency_c'
+        type: text
+        searchable: true
+    get_lang_mode:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.get_lang_mode'
+        type: number
+    is_enabled:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.is_enabled'
+        type: switch
+    created_at:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.created_at'
+        type: date
+    updated_at:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.updated_at'
+        type: date

@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table longbang_ooctober_multilanguage'
+    - builder_table_create_longbang_ooctober_multilanguage.php

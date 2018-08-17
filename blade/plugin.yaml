@@ -1,6 +1,0 @@
-plugin:
-    name: 'longbang.blade::lang.plugin.name'
-    description: 'longbang.blade::lang.plugin.description'
-    author: longbang
-    icon: oc-icon-connectdevelop
-    homepage: ''

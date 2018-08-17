@@ -1,0 +1,22 @@
+plugin:
+    name: 'longbang.ooctober::lang.plugin.name'
+    description: 'longbang.ooctober::lang.plugin.description'
+    author: longbang
+    icon: oc-icon-chain
+    homepage: ''
+permissions:
+    longbang_ooctober_multilanguage.lock:
+        tab: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.bock'
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.bock'
+navigation:
+    main_menu:
+        label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.main_menu'
+        url: longbang/ooctober/multilanguage
+        icon: icon-windows
+        sideMenu:
+            multilanguage_menu_l:
+                label: 'longbang.ooctober::lang.longbang_ooctober_multilanguage.multilanguage_menu_l'
+                url: llaravel/languages
+                icon: icon-language
+                attributes:
+                    - vc_jump_new

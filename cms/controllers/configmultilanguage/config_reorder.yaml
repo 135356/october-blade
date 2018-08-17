@@ -1,4 +1,0 @@
-title: ConfigMultilanguage
-modelClass: Longbang\Cms\Models\ConfigMultilanguage
-toolbar:
-    buttons: reorder_toolbar

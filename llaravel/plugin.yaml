@@ -1,0 +1,6 @@
+plugin:
+    name: 'longbang.llaravel::lang.plugin.name'
+    description: 'longbang.llaravel::lang.plugin.description'
+    author: longbang
+    icon: oc-icon-columns
+    homepage: ''

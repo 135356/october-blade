@@ -1,0 +1,4 @@
+title: Multilanguage
+modelClass: Longbang\Ooctober\Models\Multilanguage
+toolbar:
+    buttons: reorder_toolbar

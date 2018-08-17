@@ -1,0 +1,10 @@
+name: Multilanguage
+form: $/longbang/ooctober/models/multilanguage/fields.yaml
+modelClass: Longbang\Ooctober\Models\Multilanguage
+defaultRedirect: longbang/ooctober/multilanguage
+create:
+    redirect: 'longbang/ooctober/multilanguage/update/:id'
+    redirectClose: longbang/ooctober/multilanguage
+update:
+    redirect: longbang/ooctober/multilanguage
+    redirectClose: longbang/ooctober/multilanguage
