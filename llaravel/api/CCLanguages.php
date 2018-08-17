@@ -22,26 +22,23 @@ class CCLanguages extends CommonClasses
             $ConfigMultilanguage->create($data[0]);
         }
         foreach($data as $v){
-            if($v['is_enabled']){
-                $this->data['config'] = $v;
-            }
+            if($v['is_enabled']){$this->data['config'] = $v;}
         }
-        if(empty($v)){$this->data['is_enabled']='off';}else{$this->data['is_enabled']='on';}
+        if(empty($this->data)){$this->data['is_enabled']='off';}else{$this->data['is_enabled']='on';}
     }
 
     public function isApi($type='404')
     {
         $error = null;
-        if($this->language_C('is') != 'ok')
-            $error[] = '语言切换没引入或多语言功能没有开启';
-        if($this->currency_C('is') != 'ok')
-            $error[] = '货币切换没引入或多语言功能没有开启';
-        if($this->language_M('is') != 'ok')
-            $error[] = '语言管理数据没引入或多语言功能没有开启';
-        if($this->currency_M('is') != 'ok')
-            $error[] = '货币管理数据没引入或多语言功能没有开启';
-        if($this->languagePackage_M('is') != 'ok')
-            $error[] = '语言包数据没引入或多语言功能没有开启';
+        if($this->data['is_enabled']=='off'){
+            $error[] = '语言切换功能没有开启';
+        }else{
+            if($this->language_C('is') == 'error'){$error[] = '语言切换没引入';}
+            if($this->currency_C('is') == 'error'){$error[] = '货币切换没引入';}
+            if($this->language_M('is') == 'error'){$error[] = '语言管理数据没引入';}
+            if($this->currency_M('is') == 'error'){$error[] = '货币管理数据没引入';}
+            if($this->languagePackage_M('is') == 'error'){$error[] = '语言包数据没引入';}
+        }
 
         if($error){
             switch($type){
@@ -57,9 +54,7 @@ class CCLanguages extends CommonClasses
         switch(strtolower($this->data['config']['set_language_c'])){
             case 'translator':
                 if(class_exists('\RainLab\Translate\Classes\Translator')){
-                    if($lang=='is'){
-                        if($this->data['is_enabled']=='off')return 'off';else return 'ok';
-                    }
+                    if($lang=='is'){return 'ok';}
                     $obj = \RainLab\Translate\Classes\Translator::instance();
                     return $obj->setLocale($lang);
                 }
@@ -74,9 +69,7 @@ class CCLanguages extends CommonClasses
         switch(strtolower($this->data['config']['set_currency_c'])){
             case 'currencies':
                 if(class_exists('\Jason\Ccshop\Controllers\Currencies')){
-                    if($currency=='is'){
-                        if($this->data['is_enabled']=='off')return 'off';else return 'ok';
-                    }
+                    if($currency=='is'){return 'ok';}
                     $obj = new \Jason\Ccshop\Controllers\Currencies();
                     return $obj->switchCurrency($currency);
                 }
@@ -93,8 +86,9 @@ class CCLanguages extends CommonClasses
     public function getLanguageCountryCurrency($type='LCC')
     {
         $file = VcPathClasses::tempDB_path('php/divideCountryLanguageCurrency.php');
-        /*如果文件不存在就创建这个文件*/
+        /*如果文件与文件夹不存在就创建这个文件与文件夹*/
         if(!is_file($file)){
+            chmod($file,0777);
             if(!file_exists($file.'/php')){mkdir($file.'/php', 0777);}
             touch($file.'/php/divideCountryLanguageCurrency.php');
             chmod($file.'/php/divideCountryLanguageCurrency.php',0777);
@@ -136,14 +130,13 @@ class CCLanguages extends CommonClasses
     }
 
     //语言数据
-    public function language_M($type='LCC')
+    public function language_M($type='LCC',$type2=null)
     {
+        if($type2){$this->data['config']['language_m'] = $type2;}
         switch(strtolower($this->data['config']['language_m'])){
             case 'language'://cc_languages
                 if(class_exists('\Jason\Ccshop\Models\Language')){
-                    if($type=='is'){
-                        if($this->data['is_enabled']=='off')return 'off';else return 'ok';
-                    }
+                    if($type=='is'){return 'ok';}
                     return $this->getLanguageCountryCurrency($type);
                 }
             default:return 'error';
@@ -156,9 +149,7 @@ class CCLanguages extends CommonClasses
         switch(strtolower($this->data['config']['currency_m'])){
             case 'currency'://cc_currencies
                 if(class_exists('\Jason\Ccshop\Models\Currency')){
-                    if($type=='is'){
-                        if($this->data['is_enabled']=='off')return 'off';else return 'ok';
-                    }
+                    if($type=='is'){return 'ok';}
                     $obj = new \Jason\Ccshop\Models\Currency();
                     switch($type){
                         case 'obj':return $obj;
@@ -176,9 +167,7 @@ class CCLanguages extends CommonClasses
         switch(strtolower($this->data['config']['language_package_m'])){
             case 'locale'://'rainlab_translate_locales';
                 if(class_exists('\RainLab\Translate\Models\Locale')){
-                    if($type=='is'){
-                        if($this->data['is_enabled']=='off')return 'off';else return 'ok';
-                    }
+                    if($type=='is'){return 'ok';}
                     $obj = new \RainLab\Translate\Models\Locale();
                     switch($type){
                         case 'obj':return $obj;
