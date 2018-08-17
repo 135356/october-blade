@@ -6,11 +6,11 @@
 ## 软件架构
 october/october ~1.0
 
-
 ## 安装教程
-1. 将项目下载到october项目的\plugins目录下，或在该目录下运行git clone https://gitee.com/ky-teach/vclongbang.git
-2. 成功下载后，进到该目录下运行composer update
-3. tempDB内的大型数据下载地址：https://pan.baidu.com/s/1Brl6SLjiBhIAJzif9arqag
+    1. 仓库地址：https://gitee.com/ky-teach/vclongbang.git
+    2. 将项目下载到october项目的\plugins目录，或在october项目的/plugins目录下运行git clone https://gitee.com/ky-teach/vclongbang.git
+    3. 成功下载后，打开命令行，进到longbang/llaravel所在目录，在该目录下运行composer update
+    4. longbang/llaravel/tempDB内的大型数据下载地址：https://pan.baidu.com/s/1Brl6SLjiBhIAJzif9arqag
 
 ## 使用说明
 
@@ -43,13 +43,13 @@ october/october ~1.0
         方法1. 可以以get方式直接传语言进行切换如：<a href="https://martasa.com/?locale=zh-cn">中文</a>
         方法2. 用vc2_language.js进行切换：区别它可以是select标签,也可以是其它任意标签，原理location.href=window.location.href+'?locale=zh-cn&currency=hkd';
             vc2_language.js的使用说明，a标签的使用也可以参考：
-                注意：使用前请先在页面头部引入对象[blade],blade是具体的项目路径名称
+                注意：使用前请先在页面头部引入对象[vc]
                 如:
                     title = "index"
                     description = "首页"
                     layout = "default"
                     url = "/"
-                    [blade]
+                    [vc]
                     ==
                     
                 标签上加入属性selectLocale="1"，切换成功后，会把该标签里的内容，改成切换成功后的语言名称，同时在切换语言等待的过程中会在该标签上出现一个动画的效果。
