@@ -14,19 +14,7 @@ class LanguageClasses extends CommonClasses
     {
         /*建立连接*/
         $this->data['CCSHOP'] = new CCSHOP();
-        $this->data['divideCountryLanguageCurrency'] = $this->divideCountryLanguageCurrency();
-    }
-
-    protected function divideCountryLanguageCurrency()
-    {
-        if(empty($this->data['CCSHOP']->isApi('error'))){
-            $language_all_arr = $this->data['CCSHOP']->language_M();
-        }
-        if(empty($language_all_arr)){
-            /*当多语言为关闭，或功能不建全时，补全数据模型为默认原始的数据模型*/
-            $language_all_arr = $this->data['CCSHOP']->language_M('LCC','language');
-        }
-        return $language_all_arr;
+        $this->data['divideCountryLanguageCurrency'] = $this->data['CCSHOP']->language_M();
     }
 
     protected function match($lang,$type='language')
