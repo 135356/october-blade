@@ -13,45 +13,84 @@ class CsvClasses extends CommonClasses
     public function __construct()
     {}
 
-    public function getAll()
+    //把csv文件按行拆分成数组返回
+    public function getAll($file)
     {
-        $file = VcPathClasses::tempDB_path('geoIp/iso639_3166.csv');
+        //$file = VcPathClasses::tempDB_path('geoIp/iso639_3166.csv');
         $h = fopen($file,'r');
-        //$h2 = fopen(VcPathClasses::classes_path('geoIp/iso31662.csv'),'w');
         $arr=[];
         while ($data = fgetcsv($h)) { //每次读取CSV里面的一行内容
-            //$arr[] = CodeClasses::utf8($data);
+            //转utf8编码//$arr[] = CodeClasses::utf8($data);
             $arr[] = $data;
         }
         fclose($h);
         return $this->data['getAll'] = $arr;
     }
 
-    public function getMatch($match=null)
+    //获取csv文件里面与$match值匹配的所有信息，$colspan为csv文件里面的具体某一行是否与$match值匹配
+    public function getMatch($match='cn',$colspan='all')
     {
+        if(empty($match)){return 0;}
         if(empty($this->data['getAll'])){
             $this->getAll();
         }
         $data = [];
         foreach($this->data['getAll'] as $k=>$v){
-            if(isset($match{1})){
-                $str = $v[1].$v[2];
-                if(isset($match{2})){
-                    if(stripos($str,$match) > -1){
+            if($colspan == 'all'){//所有行的数据合并成一行进行匹配
+                $str = null;
+                if(is_array($v)){
+                    foreach($v as $vv){
+                        $str .= $vv.',';
+                    }
+                }else{
+                    $str = $v;
+                }
+                if(isset($match{strlen($str)})){
+                    if(stripos($match,$str) > -1){
                         $data[] = $v;
                     }
                 }else{
-                    if(stripos(substr($str,0,2),$match) > -1){
+                    if(stripos($str,$match) > -1){
                         $data[] = $v;
                     }
                 }
-            }else{
-                if(stripos($v[0]{0},$match) > -1){
-                    $data[] = $v;
+            }else{//某一行的数据是否匹配
+                if(isset($match{strlen($v[$colspan])})){
+                    if(stripos($match,$v[$colspan]) > -1){
+                        $data[] = $v;
+                    }
+                }else{
+                    if(stripos($v[$colspan],$match) > -1){
+                        $data[] = $v;
+                    }
                 }
             }
         }
         return $this->data['getMatch'] = $data;
+    }
+
+    //保存为csv
+    public function putCsv($file,$data)
+    {
+        if(!is_file($file)){
+            touch($file);
+        }
+        chmod($file,0777);
+        $h1 = fopen($file,'w');
+        //转码
+        $data = CodeClasses::utf8($data);
+        fwrite($h1, chr(0xEF).chr(0xBB).chr(0xBF));
+        //转csv并保存
+        $is = null;
+        if(is_array($data)){
+            foreach($data as $v){
+                $is .= fputcsv($h1,$v);
+            }
+        }else{
+            $is .= fputcsv($h1,$data);
+        }
+        fclose($h1);
+        return $is;
     }
 
     public function __get($variable)
@@ -63,6 +102,7 @@ class CsvClasses extends CommonClasses
         return $this->data[$variable];
     }
 
+    //合并数据
     public function aaaaaa()
     {
         return null;

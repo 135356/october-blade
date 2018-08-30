@@ -2,6 +2,12 @@
 
 use Longbang\Llaravel\Controllers\LanguageController;
 
+//百度扩展
+Route::group(['prefix'=>'baidu','namespace'=>namespace_route(),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
+    //按各个不同的语言译iso标准库国家名称为对应的语言，并保存为iso639_3166_2.csv
+    Route::get('/trans','BaiduController@trans');
+});
+
 //实际对应如：http://aaa.a/Pv4QZMrjaswXxkCG/llaravel/aaa
 Route::get(route_route('aaa'), 'Longbang\Llaravel\Controllers\Languages\IndexController@aaa');
 Route::get('file', function(){});

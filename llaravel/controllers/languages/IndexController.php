@@ -4,6 +4,7 @@ namespace Longbang\Llaravel\Controllers\Languages;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
+use Longbang\Llaravel\Classes\VcPathClasses;
 use Longbang\Llaravel\Classes\CsvClasses;
 use Longbang\Llaravel\Api\CCLanguages as CCSHOP;
 use Longbang\Llaravel\Controllers\CommonController;
@@ -31,7 +32,7 @@ class IndexController extends CommonController
         $language_LCC = $this->data['CCSHOP']->language_M();
         $language_currency = $this->data['CCSHOP']->currency_M();
         $iso3166 = new CsvClasses();
-        $language_iso3166 = $iso3166->getAll();
+        $language_iso3166 = $iso3166->getAll(VcPathClasses::tempDB_path('geoIp/iso639_3166.csv'));
         if(empty($language_iso3166)){return 'iso标准库没引入';}
 
         foreach($language_LCC as $k=>$v){

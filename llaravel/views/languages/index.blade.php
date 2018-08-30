@@ -115,9 +115,9 @@
                 <select class="selectpicker show-tick form-control **select2**" name="create_language" style="width: 100%;">
                     @foreach($language_iso3166 as $vv)
                         @if($v['country'] == $vv[0])
-                            <option value="{{$vv[0]}},{{$vv[1]}},{{$vv[2]}},{{$vv[3]}}" selected>{{$vv[2]}}{{$vv[3]}}</option>
+                            <option value="{{implode(',',$vv)}}" selected>{{$vv[2]}}{{$vv[3]}}</option>
                         @else
-                            <option value="{{$vv[0]}},{{$vv[1]}},{{$vv[2]}},{{$vv[3]}}">{{$vv[2]}}{{$vv[3]}}</option>
+                            <option value="{{implode(',',$vv)}}">{{$vv[2]}}{{$vv[3]}}</option>
                         @endif
                     @endforeach
                 </select>
