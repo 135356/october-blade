@@ -131,7 +131,30 @@ class CCLanguages extends CommonClasses
     //语言数据
     public function language_M($type='LCC',$type2=null)
     {
-        if($type2){$this->data['config']['language_m'] = $type2;}
+        if($type2 == 'off'){
+            $data_file['getAll'] = \Jason\Ccshop\Models\Language::orderBy('sort','ASC')->get()->toArray();
+            foreach($data_file['getAll'] as $k=>$v){
+                $arr[$k] = array('id'=>$v['id'],'name'=>$v['name'],'is_enabled'=>$v['is_enabled'],'is_default'=>$v['is_default'],'sort'=>$v['sort'],'language'=>null,'country'=>null,'currency'=>null);
+                $data = explode('~',$v['code']);
+                if(empty($data[0])||empty($data[1])){
+                    break;
+                }
+                $language = stripos($data[0],'-');
+                if($language > -1){
+                    $arr[$k]['language'] = substr($data[0],0,$language);
+                    $arr[$k]['country'] = ltrim(substr($data[0],$language),'-');
+                    if(stripos($data[0],'zh') > -1){
+                        $arr[$k]['language'] = 'ZH-CN';
+                    }
+                }else{
+                    $arr[$k]['language'] = $data[0];
+                    $arr[$k]['country'] = $data[0];
+                }
+                $arr[$k]['currency'] = $data[1];
+            }
+            return $arr;
+        }
+
         switch(strtolower($this->data['config']['language_m'])){
             case 'language'://cc_languages
                 if(class_exists('\Jason\Ccshop\Models\Language')){

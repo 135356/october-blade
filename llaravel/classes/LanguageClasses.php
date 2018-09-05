@@ -22,9 +22,9 @@ class LanguageClasses extends CommonClasses
         if(empty($this->data['CCSHOP']->isApi('error'))){
             $language_all_arr = $this->data['CCSHOP']->language_M();
         }
-        if(empty($language_all_arr)){
+        if(!isset($language_all_arr)){
             /*当多语言为关闭，或功能不建全时，补全数据模型为默认原始的数据模型*/
-            $language_all_arr = $this->data['CCSHOP']->language_M('LCC','language');
+            $language_all_arr = $this->data['CCSHOP']->language_M('LCC','off');
         }
         return $language_all_arr;
     }
