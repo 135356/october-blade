@@ -55,11 +55,11 @@ october/october ~1.0
                 标签上加入属性selectLocale="1"，切换成功后，会把该标签里的内容，改成切换成功后的语言名称，同时在切换语言等待的过程中会在该标签上出现一个动画的效果。
                 标签上加入hide="1"，在鼠标经过该标签的时候它才会显示出来，鼠标离开后，该标签会隐藏
                 class="{% if catalog.switchedCurrency.code == val['code'][1] %} active {% endif %}" 判断当前用户所使用的货币代码，对该货币所对应的语言标签加上active属性
-                <script src="{{'js/vc2_language.min.js'|vc_assets}}"></script> 在页面中引入vc2_language.js，如果对压缩的min.js有疑惑，可把min去掉，则直接引入原js
+                <script src="{{'js/vc2_language.min.js'|vcSrc}}"></script> 在页面中引入vc2_language.js，如果对压缩的min.js有疑惑，可把min去掉，则直接引入原js
                 $('#locale').vc2_language(); 调用vc2_language.js
                 实例：
                     <!--在页面中引入js--!>
-                    <script src="{{'js/vc2_language.min.js'|vc_assets}}"></script>
+                    <script src="{{'js/vc2_language.min.js'|vcSrc}}"></script>
                     <div id="locale">
                         <div selectLocale="1">{{ 'Language'|_ }}&nbsp;▼</div>
                         <ul hide="1">

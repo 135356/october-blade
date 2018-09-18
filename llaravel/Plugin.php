@@ -1,13 +1,14 @@
 <?php namespace Longbang\Llaravel;
 
 use System\Classes\PluginBase;
+use Longbang\Llaravel\Classes\VcPathClasses;
 
 class Plugin extends PluginBase
 {
     public function registerComponents()
     {
         return [
-            namespaces_route('Components\VcComponents') => 'vc'
+            VcPathClasses::parentNamespaces_route('Components\VcComponents') => 'vc'
         ];
     }
 
@@ -19,14 +20,13 @@ class Plugin extends PluginBase
     {
         return [
             'filters' => [
-                'vc_route_route' => 'route_route',
-                'vc_assets' => 'assets_src',
+                'vcSrc' => 'vcSrc',
                 'vc_string_filtering' => [$this, 'stringFiltering']
             ],
             'functions' => [
-                'vc_assets_src' => function($str=null)
+                'AAAAAAAAA' => function($string=null)
                 {
-                    return assets_src($str);
+                    return vcUrl($string);
                 }
             ]
         ];
@@ -39,6 +39,6 @@ class Plugin extends PluginBase
 
     public function boot()
     {
-        $this->loadViewsFrom(views_path(),VC_NAME);
+        $this->loadViewsFrom(VcPathClasses::views_path(),VC_NAME);
     }
 }

@@ -20,11 +20,6 @@ class IndexController extends CommonController
         $this->data['CCSHOP'] = new CCSHOP();
     }
 
-    public function aaa()
-    {
-        return 'abc';
-    }
-
     public function index()
     {
         $this->data['CCSHOP']->isApi();
@@ -90,7 +85,7 @@ class IndexController extends CommonController
                 }
             }
         }
-        return view(VC_NAME.'::languages.index',compact('language_LCC','language_package','language_currency','language_iso3166'));
+        return view(vcViews('pages/languages/index'),compact('language_LCC','language_package','language_currency','language_iso3166'));
     }
 
     public function upLanguage()

@@ -2,27 +2,34 @@
 
 use Longbang\Llaravel\Classes\VcPathClasses;
 
-function namespace_route($str=null)
+define('VC_NAME',VcPathClasses::obj()->DIR);
+/*命名:longbang\llaravel\Controllers{$str}*/
+function vcNamespace($str=null)
 {
     return VcPathClasses::namespace_route($str);
 }
-function namespaces_route($str=null)
-{
-    return VcPathClasses::namespaces_route($str);
-}
-function route_route($str=null)
+/*路由:Pv4QZMrjaswXxkCG/llaravel{$str}*/
+function vcRoute($str=null)
 {
     return VcPathClasses::route_route($str);
 }
-function url_route($str=null)
+/*url连接:http://aaa.a/Pv4QZMrjaswXxkCG/llaravel{$str}*/
+function vcUrl($str=null)
 {
-    return VcPathClasses::url_route($str);
+    return VcPathClasses::url_route().'/'.preg_replace("/^[\\\|\/]/",'',$str);
 }
-function views_path($str=null)
+/*url连接(父级):http://aaa.a/Pv4QZMrjaswXxkCG{$str}*/
+function vcParentUrl($str=null)
 {
-    return VcPathClasses::views_path($str);
+    return VcPathClasses::parentUrl_route().'/'.preg_replace("/^[\\\|\/]/",'',$str);
 }
-function assets_src($str=null)
+/*视图资源:http://aaa.a/plugins/longbang/llaravel/views/assets{$str}*/
+function vcSrc($str=null,$path='assets')
 {
-    return VcPathClasses::assets_src($str);
+    return VcPathClasses::views_src($path).'/'.preg_replace("/^[\\\|\/]/",'',$str);
+}
+/*视图空间:llaravel::{$str}*/
+function vcViews($str)
+{
+    return VC_NAME.'::'.preg_replace('/[\\\|\/]/','.',$str);
 }

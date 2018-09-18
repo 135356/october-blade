@@ -1,7 +1,7 @@
-@extends(VC_NAME.'::languages.layouts.default')
+@extends(vcViews('layouts.default'))
 @section('content')
-    <link href="{{assets_src('css/select2.min.css')}}" rel="stylesheet">
-    <script src="{{assets_src('js/select2.min.js')}}"></script>
+    <link href="{{vcSrc('css/select2.min.css')}}" rel="stylesheet">
+    <script src="{{vcSrc('js/select2.min.js')}}"></script>
     <style>
         .language_table{
 
@@ -34,7 +34,7 @@
 
         <tbody>
         @foreach($language_LCC as $v)
-            <form action="{{url_route('languages/up_language/').$v['id']}}" method="post">
+            <form action="{{vcUrl('languages/up_language/').$v['id']}}" method="post">
             <tr>
                 <td>
                     <input type="text" value="{{$v['id']}}" name="id" readonly="true" />
@@ -58,7 +58,7 @@
                 <td style="position:relative;">
                     @if($v['style']['currency'] != 1)
                         <p vc_show_children="1" style="position:absolute;width: 30%;height:15px;color:#fff;background-color: rgba(255, 0, 0, 0.7);">
-                            <a style="position:absolute;z-index:2;min-width: 200px;display:none;background:#aff;color:#0000ff;" href="{{url(route_route('/jason/ccshop/currencies'))}}"><b>没有该货币，点击去添加，code建议为：{{$v['style']['iso_suggest']['currency']}}</b></a>
+                            <a style="position:absolute;z-index:2;min-width: 200px;display:none;background:#aff;color:#0000ff;" href="{{vcParentUrl('/jason/ccshop/currencies')}}" ><b>没有该货币，点击去添加，code建议为：{{$v['style']['iso_suggest']['currency']}}</b></a>
                         </p>
                     @elseif($v['style']['iso']['currency'] != 1)
                         <p style="position:absolute;width: 30%;height:15px;color:#fff;background-color: rgba(255, 160, 0, 0.7);" title="code建议为：{{$v['style']['iso_suggest']['currency']}}"></p>
@@ -73,7 +73,7 @@
                 <td style="position:relative;">
                     @if($v['style']['language'] != 1)
                         <p vc_show_children="1" style="position:absolute;width: 30%;height:15px;color:#fff;background-color: rgba(255, 0, 0, 0.7);">
-                            <a style="position:absolute;z-index:2;min-width: 200px;display:none;background:#aff;color:#0000ff;" href="{{url(route_route('/rainlab/translate/locales'))}}"><b>没有该语言包，点击去添加（需事先添加语言包文件）code建议为：{{$v['style']['iso_suggest']['language']}}</b></a>
+                            <a style="position:absolute;z-index:2;min-width: 200px;display:none;background:#aff;color:#0000ff;" href="{{url(vcParentUrl('/rainlab/translate/locales'))}}"><b>没有该语言包，点击去添加（需事先添加语言包文件）code建议为：{{$v['style']['iso_suggest']['language']}}</b></a>
                         </p>
                     @elseif($v['style']['iso']['language'] != 1)
                         <p style="position:absolute;width: 30%;height:15px;color:#fff;background-color: rgba(255, 160, 0, 0.7);" title="code建议为：{{$v['style']['iso_suggest']['language']}}"></p>
@@ -101,7 +101,7 @@
                     <input type="submit" value="保存" />
                 </td>
                 <td>
-                    <input type="button" vc_jump="{{url('/').'/'.route_route('languages/delete_language/').$v['id']}}" value="删除" />
+                    <input type="button" vc_jump="{{url('/').'/'.vcRoute('languages/delete_language/').$v['id']}}" value="删除" />
                 </td>
             </tr>
             </form>
@@ -110,7 +110,7 @@
     </table>
     <div>
         <div id="select_create_html" style="display:none;position:fixed;top: 100px;width: 750px;border:solid 2px #888;background:#fff;">
-            <form action="{{url_route('languages/create_language')}}" method="post">
+            <form action="{{vcUrl('languages/create_language')}}" method="post">
                 <h1>请选择你要新增的国家</h1>
                 <select class="selectpicker show-tick form-control **select2**" name="create_language" style="width: 100%;">
                     @foreach($language_iso3166 as $vv)

@@ -1,19 +1,23 @@
-<?php include_once(__DIR__.'/config.php');define('VC_NAME',\Longbang\Llaravel\Classes\VcPathClasses::obj()->DIR);
+<?php
 
+use Longbang\Llaravel\Classes\VcPathClasses;
 use Longbang\Llaravel\Controllers\LanguageController;
 
+include_once(__DIR__.'/config.php');
 //百度扩展
-Route::group(['prefix'=>'baidu','namespace'=>namespace_route(),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
+Route::group(['prefix'=>'baidu','namespace'=>vcNamespace(),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
     //按各个不同的语言译iso标准库国家名称为对应的语言，并保存为iso639_3166_2.csv
     Route::get('/trans','BaiduController@trans');
 });
 
 //实际对应如：http://aaa.a/Pv4QZMrjaswXxkCG/llaravel/aaa
-Route::get(route_route('aaa'), 'Longbang\Llaravel\Controllers\Languages\IndexController@aaa');
-Route::get('file', function(){});
+Route::get(vcRoute('aaa'), 'Longbang\Llaravel\Controllers\Languages\IndexController@aaa');
+Route::get('file', function(){
+    //$a = new \Longbang\Llaravel\Classes\FileClasses();$a->newFile();
+});
 
 /*多语言相关（后台视图功能）*/
-Route::group(['prefix'=>route_route('languages'),'namespace'=>namespace_route('languages'),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
+Route::group(['prefix'=>vcRoute('languages'),'namespace'=>vcNamespace('languages'),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
     Route::get('/','IndexController@index');
     /*修改语言*/
     Route::post('up_language/{id}','IndexController@upLanguage');
@@ -29,7 +33,7 @@ Route::group(['prefix'=>route_route('languages'),'namespace'=>namespace_route('l
 });
 
 /*多语言相关*/
-Route::group(['prefix'=>'languages','namespace'=>namespace_route()],function(){
+Route::group(['prefix'=>'languages','namespace'=>vcNamespace()],function(){
     /*获取语言管理里的全部数据*/
     Route::get('/getLanguageAll', 'LanguageController@getLanguageAll');
 
@@ -83,7 +87,7 @@ Route::group(['prefix'=>'languages','namespace'=>namespace_route()],function(){
 });
 
 /*国家地区相关*/
-Route::group(['prefix'=>'area','namespace'=>namespace_route()],function(){
+Route::group(['prefix'=>'area','namespace'=>vcNamespace()],function(){
     //检查ip
     Route::get('getIp', 'AreaController@getIp');
     /*获取国家、省、市、邮编*/

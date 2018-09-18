@@ -3,6 +3,7 @@
 namespace Longbang\Llaravel\Api;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Longbang\Llaravel\Classes\VcPathClasses;
 use Longbang\Ooctober\Models\Multilanguage;
 use Longbang\Llaravel\Classes\CommonClasses;
@@ -42,7 +43,7 @@ class CCLanguages extends CommonClasses
 
         if($error){
             switch($type){
-                case '404':echo view(VC_NAME.'::languages.404')->withErrors($error);exit;
+                case '404':echo view(vcViews('pages.languages.404'))->withErrors($error);exit;
                 case 'error':return $error;
             }
         }
@@ -85,13 +86,25 @@ class CCLanguages extends CommonClasses
      * */
     public function getLanguageCountryCurrency($type='LCC')
     {
+        //Storage::disk('local')->put('file.txt', 'Contents');
+        //echo asset('storage/file.txt');
+        //dd(Storage::disk('s3')->put('LongBang/test.txt', '文件内容','public'));
+        //dd(Storage::disk('s3')->get('storage/file.txt'));
+        //Storage::delete('file.txt');
+        //Storage::disk('s3')->deleteDirectory('storage');
+
+
         $file = VcPathClasses::tempDB_path('php/divideCountryLanguageCurrency.php');
         /*如果文件与文件夹不存在就创建这个文件与文件夹*/
-        if(!is_file($file)){//chmod($file,0777);
-            if(!file_exists($file.'/php')){mkdir($file.'/php', 0777);}
+        if(!is_file($file)){
+            //chmod($file,0777);use October\Rain\Database\Attach\File;use Illuminate\Support\Facades\Storage;
+            if(!file_exists($file.'/php')){
+                mkdir($file.'/php', 0777);
+            }
             touch($file.'/php/divideCountryLanguageCurrency.php');
             chmod($file.'/php/divideCountryLanguageCurrency.php',0777);
-            $file = VcPathClasses::tempDB_path('php/divideCountryLanguageCurrency.php');}
+            $file = VcPathClasses::tempDB_path('php/divideCountryLanguageCurrency.php');
+        }
         switch($type){
             case 'LCC':
                 include_once $file;

@@ -3,14 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Manage the blog posts | MECLOSET</title>
-    <link rel="stylesheet" href="{{assets_src('css/init.min.css')}}">
-    <script src="{{assets_src('js/jquery1.11.1.min.js')}}"></script>
+    <link rel="stylesheet" href="{{vcSrc('css/init.min.css')}}">
+    <script src="{{vcSrc('js/jquery1.11.1.min.js')}}"></script>
 </head>
 <body>
 <div style="width:1024px;margin:0 auto;">
     {{--导航--}}
     <div style="width:18%;float: left;">
-        @include(VC_NAME.'::languages.modular.nav')
+        @include(vcViews('partials.common.nav'))
     </div>
 
     {{--右--}}
