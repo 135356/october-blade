@@ -1,10 +1,8 @@
 <?php
 
-namespace Longbang\Llaravel\Api;
+namespace Longbang\Llaravel\ApiIn;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Longbang\Llaravel\Classes\VcPathClasses;
 use Longbang\Ooctober\Models\Multilanguage;
 use Longbang\Llaravel\Classes\CommonClasses;
 
@@ -80,39 +78,28 @@ class CCLanguages extends CommonClasses
     }
 
     /*
-     * LCC分别为，语言language、国家country、货币currency，同时也会储存一个临时经过计算后的文件在tempDB下，避免不必要的资源浪费
+     * LCC分别为，语言language、国家country、货币currency，同时也会储存一个临时经过计算后的文件在\storage\app\LongBang\temp下，避免不必要的资源浪费
      * all 未经加工的模型内的所有数据
      * obj 直接返回数据模型
      * */
     public function getLanguageCountryCurrency($type='LCC')
     {
-        //Storage::disk('local')->put('file.txt', 'Contents');
-        //echo asset('storage/file.txt');
-        //dd(Storage::disk('s3')->put('LongBang/test.txt', '文件内容','public'));
-        //dd(Storage::disk('s3')->get('storage/file.txt'));
-        //Storage::delete('file.txt');
-        //Storage::disk('s3')->deleteDirectory('storage');
-
-
-        $file = VcPathClasses::tempDB_path('php/divideCountryLanguageCurrency.php');
+        $file = 'LongBang/temp/divideCountryLanguageCurrency.php';
         /*如果文件与文件夹不存在就创建这个文件与文件夹*/
-        if(!is_file($file)){
-            //chmod($file,0777);use October\Rain\Database\Attach\File;use Illuminate\Support\Facades\Storage;
-            if(!file_exists($file.'/php')){
-                mkdir($file.'/php', 0777);
-            }
-            touch($file.'/php/divideCountryLanguageCurrency.php');
-            chmod($file.'/php/divideCountryLanguageCurrency.php',0777);
-            $file = VcPathClasses::tempDB_path('php/divideCountryLanguageCurrency.php');
+        if(!Storage::exists($file)){
+            Storage::put($file, '', 'public');
         }
         switch($type){
             case 'LCC':
-                include_once $file;
-                if(!empty($data_file['divideCountryLanguageCurrency']))return $data_file['divideCountryLanguageCurrency'];
-                if(empty($data_file['getAll']))$data_file['getAll'] = \Jason\Ccshop\Models\Language::orderBy('sort','ASC')->get()->toArray();
+                eval(str_replace(array('<?php','<?','?>'), '', Storage::get($file)));
+                if(isset($data_file['divideCountryLanguageCurrency'])){
+                    return $data_file['divideCountryLanguageCurrency'];
+                }else{
+                    $data_file['getAll'] = \Jason\Ccshop\Models\Language::orderBy('sort','ASC')->get()->toArray();
+                }
                 break;
-            case 'all':unlink($file);return \Jason\Ccshop\Models\Language::orderBy('sort','ASC')->get();
-            case 'obj':unlink($file);return new \Jason\Ccshop\Models\Language();
+            case 'all':Storage::delete($file);return \Jason\Ccshop\Models\Language::orderBy('sort','ASC')->get();
+            case 'obj':Storage::delete($file);return new \Jason\Ccshop\Models\Language();
         }
 
         $arr = array();
@@ -136,9 +123,8 @@ class CCLanguages extends CommonClasses
             $arr[$k]['currency'] = $data[1];
         }
         $data_file['divideCountryLanguageCurrency'] = $arr;
-        $file_data = '<?php $data_file='.var_export($data_file,true).';';
-        file_put_contents($file,$file_data);
-        return $arr;
+        Storage::put($file, '<?php $data_file='.var_export($data_file,true).';','public');
+        return $data_file['divideCountryLanguageCurrency'];
     }
 
     //语言数据

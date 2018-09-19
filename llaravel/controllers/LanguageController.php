@@ -4,7 +4,7 @@ namespace Longbang\Llaravel\Controllers;
 
 use Longbang\Llaravel\Controllers\CommonController;
 use Longbang\Llaravel\Classes\LanguageClasses;
-use Longbang\Llaravel\Api\CCLanguages as CCSHOP;
+use Longbang\Llaravel\ApiIn\CCLanguages as CCSHOP;
 
 class LanguageController extends CommonController
 {

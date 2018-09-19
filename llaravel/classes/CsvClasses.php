@@ -2,6 +2,7 @@
 
 namespace Longbang\Llaravel\Classes;
 
+use Illuminate\Support\Facades\Storage;
 use Longbang\Llaravel\Classes\CodeClasses;
 use Longbang\Llaravel\Classes\VcPathClasses;
 use Longbang\Llaravel\Classes\CommonClasses;
@@ -16,14 +17,30 @@ class CsvClasses extends CommonClasses
     //把csv文件按行拆分成数组返回
     public function getAll($file)
     {
-        //$file = VcPathClasses::tempDB_path('geoIp/iso639_3166.csv');
-        $h = fopen($file,'r');
+        //$file = VcPathClasses::tempDB_path('geoIp/iso639_3166.csv');//$h = fopen($file,'r');
+        //$file = 'LongBang/geoIp/iso639_3166.csv';
+        $file = preg_replace("/^[\\\|\/]/",'',$file);
+        $h = fopen(storage_path('app/').$file, 'r');
         $arr=[];
         while ($data = fgetcsv($h)) { //每次读取CSV里面的一行内容
             //转utf8编码//$arr[] = CodeClasses::utf8($data);
             $arr[] = $data;
         }
         fclose($h);
+        return $this->data['getAll'] = $arr;
+    }
+
+    /*手动遍厉csv文件*/
+    public function getAll1($file)
+    {
+        //$file = 'LongBang/geoIp/iso639_3166.csv';
+        $f = Storage::get($file);
+        $f = explode("\n",$f);
+        $f = preg_replace("/[\'\"]/","",$f);
+        $arr = [];
+        foreach($f as $k=>$v){
+            $arr[$k] = explode(',',$v);
+        }
         return $this->data['getAll'] = $arr;
     }
 
@@ -72,11 +89,13 @@ class CsvClasses extends CommonClasses
     //保存为csv
     public function putCsv($file,$data)
     {
+        $file = preg_replace("/^[\\\|\/]/",'',$file);
+        $file = storage_path('app/').$file;
+
         if(!is_file($file)){
-            touch($file);
+            Storage::put($file, '', 'public');
         }
-        chmod($file,0777);
-        $h1 = fopen($file,'w');
+        $h1 = fopen($file, 'w');
         //转码
         $data = CodeClasses::utf8($data);
         fwrite($h1, chr(0xEF).chr(0xBB).chr(0xBF));

@@ -15,12 +15,18 @@ namespace Longbang\Llaravel\Classes;
 
 use Longbang\Llaravel\Classes\CommonClasses;
 
-define("CURL_TIMEOUT",   10);
-define("URL",            "http://api.fanyi.baidu.com/api/trans/vip/translate");
-define("APP_ID",         "20180830000200450"); //替换为您的APPID
-define("SEC_KEY",        "RVy9vqc6mBA0Ckcve6yR");//替换为您的密钥
+class BaiduTransapiClasses extends CommonClasses
+{
+    public $baidu = [];
 
-class BaiduTransapiClasses extends CommonClasses{
+    public function __construct()
+    {
+        $this->baidu['CURL_TIMEOUT'] = 10;
+        $this->baidu['URL'] = "http://api.fanyi.baidu.com/api/trans/vip/translate";
+        $this->baidu['APP_ID'] = "20180830000200450";//替换为您的APPID
+        $this->baidu['SEC_KEY'] = "RVy9vqc6mBA0Ckcve6yR";//替换为您的密钥
+    }
+
 
 //翻译入口
     public function translate($query, $from='auto', $to='zh')
@@ -28,13 +34,13 @@ class BaiduTransapiClasses extends CommonClasses{
         //将apple从英文翻译成中文q=apple + from=en + to=zh + appid=2015063000000001 + salt=1435660288
         $args = array(
             'q' => $query,//请求翻译query
-            'appid' => APP_ID,//APP ID
+            'appid' => $this->baidu['APP_ID'],//APP ID
             'salt' => rand(10000,99999),//随机数
             'from' => $from,//翻译源语言(可设置为auto)
             'to' => $to,//译文语言(翻译成)
         );
-        $args['sign'] = $this->buildSign($query, APP_ID, $args['salt'], SEC_KEY);
-        $ret = $this->call(URL, $args);
+        $args['sign'] = $this->buildSign($query, $this->baidu['APP_ID'], $args['salt'], $this->baidu['SEC_KEY']);
+        $ret = $this->call($this->baidu['URL'], $args);
         $ret = json_decode($ret, true);
         return $ret;
     }
@@ -48,8 +54,9 @@ class BaiduTransapiClasses extends CommonClasses{
     }
 
 //发起网络请求
-    public function call($url, $args=null, $method="post", $testflag = 0, $timeout = CURL_TIMEOUT, $headers=array())
+    public function call($url, $args=null, $method="post", $testflag = 0, $timeout = null, $headers=array())
     {
+        $timeout = isset($timeout)?$timeout:$this->baidu['CURL_TIMEOUT'];
         $ret = false;
         $i = 0;
         while($ret === false)
@@ -66,8 +73,9 @@ class BaiduTransapiClasses extends CommonClasses{
         return $ret;
     }
 
-    public function callOnce($url, $args=null, $method="post", $withCookie = false, $timeout = CURL_TIMEOUT, $headers=array())
+    public function callOnce($url, $args=null, $method="post", $withCookie = false, $timeout = null, $headers=array())
     {
+        $timeout = isset($timeout)?$timeout:$this->baidu['CURL_TIMEOUT'];
         $ch = curl_init();
         if($method == "post")
         {
