@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Longbang\Llaravel\Classes\VcPathClasses;
 use Longbang\Llaravel\Classes\CsvClasses;
-use Longbang\Llaravel\ApiIn\CCLanguages as CCSHOP;
+use Longbang\Llaravel\Introduce\CCLanguages as CCSHOP;
 use Longbang\Llaravel\Controllers\CommonController;
 
 class IndexController extends CommonController

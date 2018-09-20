@@ -1,6 +1,6 @@
 <?php
 
-namespace Longbang\Llaravel\ApiIn;
+namespace Longbang\Llaravel\Introduce;
 
 use Illuminate\Support\Facades\Storage;
 use Longbang\Ooctober\Models\Multilanguage;

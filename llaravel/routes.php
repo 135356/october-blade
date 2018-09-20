@@ -1,9 +1,8 @@
-<?php
+<?php include_once(__DIR__.'/config.php');
 
 use Longbang\Llaravel\Classes\VcPathClasses;
 use Longbang\Llaravel\Controllers\LanguageController;
 
-include_once(__DIR__.'/config.php');
 //百度扩展
 Route::group(['prefix'=>'baidu','namespace'=>vcNamespace(),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
     //按各个不同的语言译iso标准库国家名称为对应的语言，并保存为iso639_3166_2.csv

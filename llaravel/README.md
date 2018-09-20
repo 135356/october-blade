@@ -10,7 +10,7 @@ october/october ~1.0
     1. 仓库地址：https://gitee.com/ky-teach/vclongbang.git
     2. 将项目下载到october项目的\plugins目录，或在october项目的/plugins目录下运行git clone https://gitee.com/ky-teach/vclongbang.git
     3. 成功下载后，打开命令行，进到longbang/llaravel所在目录，在该目录下运行composer update
-    4. \storage\app\LongBang\geoIp内的大型数据下载地址：https://pan.baidu.com/s/1vN3Qdltg1kk0kxsopTBLVw
+    4. \storage\app\LongBang\geoIp内的大型数据下载地址：https://pan.baidu.com/s/1-DJ8LW1sSf5y8K6VBmZ_vQ
 
 ## 使用说明
 
