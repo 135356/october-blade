@@ -92,24 +92,22 @@ class IndexController extends CommonController
     {
         $input = Input::all();
         $id = $input['id'];
+        $input['code_language'] = substr(trim($input['code_language']),0,2);
 
         $rl = [
             'name' => 'required|between:1,20',
-            'code_language' => 'required|size:2|alpha_num',
-            'code_country' => 'required|size:2|alpha_num',
-            'code_currency' => 'required|size:3|alpha_num'
+            'code_language' => 'required|alpha_num',
+            'code_country' => 'required|alpha_num',
+            'code_currency' => 'required|alpha_num'
         ];
         $mes = [
             'name.between'=>'显示名称必须是1到20个字符之间',
             'code_language.required'=>'语言包名称必填',
-            'code_language.size'=>'语言必须2位字符',
-            'code_language.alpha_num'=>'语言包名称不能包含"-"符号',
+            'code_language.alpha_num'=>'语言包名称不能包含"-"符号，或者语言包文件不存在',
             'code_country.required'=>'国家必填',
-            'code_country.size'=>'国家必须2位字符',
             'code_country.alpha_num'=>'国家不能包含"-"符号',
             'code_currency.required'=>'货币必填',
-            'code_currency.size'=>'货币必须3位字符',
-            'code_currency.alpha_num'=>'货币不能包含"-"符号',
+            'code_currency.alpha_num'=>'货币不能包含"-"符号，或者货币管理内没有该货币',
         ];
         $v = Validator::make($input,$rl,$mes);
         if($v->passes()){

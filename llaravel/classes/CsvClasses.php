@@ -12,7 +12,9 @@ class CsvClasses extends CommonClasses
     public $data = null;
 
     public function __construct()
-    {}
+    {
+        $this->data['storage'] = Storage::disk('local');
+    }
 
     //把csv文件按行拆分成数组返回
     public function getAll($file)
@@ -34,7 +36,7 @@ class CsvClasses extends CommonClasses
     public function getAll1($file)
     {
         //$file = 'LongBang/geoIp/iso639_3166.csv';
-        $f = Storage::get($file);
+        $f = $this->data['storage']->get($file);
         $f = explode("\n",$f);
         $f = preg_replace("/[\'\"]/","",$f);
         $arr = [];
@@ -93,7 +95,7 @@ class CsvClasses extends CommonClasses
         $file = storage_path('app/').$file;
 
         if(!is_file($file)){
-            Storage::put($file, '', 'public');
+            $this->data['storage']->put($file, '', 'public');
         }
         $h1 = fopen($file, 'w');
         //转码
