@@ -8,7 +8,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            VcPathClasses::parentNamespaces_route('Components\VcComponents') => 'vc'
+            VcPathClasses::parentNamespace_route('Components\VcComponents') => 'vc'
         ];
     }
 
