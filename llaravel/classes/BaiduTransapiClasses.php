@@ -11,9 +11,7 @@
  * @brief
  *
  **/
-namespace Longbang\Llaravel\Classes;
-
-use Longbang\Llaravel\Classes\CommonClasses;
+namespace Lonban\Llaravel\Classes;
 
 class BaiduTransapiClasses extends CommonClasses
 {

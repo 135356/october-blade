@@ -1,4 +1,4 @@
-<?php namespace Longbang\Ooctober\Controllers;
+<?php namespace Lonban\Ooctober\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;

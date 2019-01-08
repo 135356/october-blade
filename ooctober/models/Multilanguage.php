@@ -1,4 +1,4 @@
-<?php namespace Longbang\Ooctober\Models;
+<?php namespace Lonban\Ooctober\Models;
 
 use Model;
 

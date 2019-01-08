@@ -1,6 +1,6 @@
 <?php
 
-namespace Longbang\Llaravel\Middleware;
+namespace Lonban\Llaravel\Middleware;
 
 use Closure;
 use Backend\Facades\Backend;

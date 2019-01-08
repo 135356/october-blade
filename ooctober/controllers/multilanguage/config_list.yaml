@@ -1,5 +1,5 @@
 list: $/longbang/ooctober/models/multilanguage/columns.yaml
-modelClass: Longbang\Ooctober\Models\Multilanguage
+modelClass: Lonban\Ooctober\Models\Multilanguage
 title: Multilanguage
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true

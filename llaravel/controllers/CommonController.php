@@ -1,6 +1,6 @@
 <?php
 
-namespace Longbang\Llaravel\Controllers;
+namespace Lonban\Llaravel\Controllers;
 
 use Illuminate\Routing\Controller;
 

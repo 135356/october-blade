@@ -4,35 +4,66 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd4d9ce10f93d8bdb1bd89babd0e0a0f1
+class ComposerStaticInit95013c6878739711888837116663f3a8
 {
     public static $prefixLengthsPsr4 = array (
-        'O' => 
+        'M' => 
         array (
-            'Ooctober\\' => 9,
+            'MaxMind\\WebService\\' => 19,
+            'MaxMind\\Exception\\' => 18,
+            'MaxMind\\Db\\' => 11,
         ),
         'L' => 
         array (
-            'Llaravel\\' => 9,
+            'Lonban\\Ooctober\\' => 16,
+            'Lonban\\Llaravel\\' => 16,
+        ),
+        'G' => 
+        array (
+            'GeoIp2\\' => 7,
+        ),
+        'C' => 
+        array (
+            'Composer\\CaBundle\\' => 18,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Ooctober\\' => 
+        'MaxMind\\WebService\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maxmind/web-service-common/src/WebService',
+        ),
+        'MaxMind\\Exception\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception',
+        ),
+        'MaxMind\\Db\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maxmind-db/reader/src/MaxMind/Db',
+        ),
+        'Lonban\\Ooctober\\' => 
         array (
             0 => __DIR__ . '/../..' . '/ooctober',
         ),
-        'Llaravel\\' => 
+        'Lonban\\Llaravel\\' => 
         array (
             0 => __DIR__ . '/../..' . '/llaravel',
+        ),
+        'GeoIp2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/geoip2/geoip2/src',
+        ),
+        'Composer\\CaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
         ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd4d9ce10f93d8bdb1bd89babd0e0a0f1::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd4d9ce10f93d8bdb1bd89babd0e0a0f1::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit95013c6878739711888837116663f3a8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit95013c6878739711888837116663f3a8::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

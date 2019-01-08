@@ -1,4 +1,4 @@
-<?php namespace Longbang\Ooctober\Updates;
+<?php namespace Lonban\Ooctober\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;

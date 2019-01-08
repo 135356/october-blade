@@ -6,6 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Ooctober\\' => array($baseDir . '/ooctober'),
-    'Llaravel\\' => array($baseDir . '/llaravel'),
+    'MaxMind\\WebService\\' => array($vendorDir . '/maxmind/web-service-common/src/WebService'),
+    'MaxMind\\Exception\\' => array($vendorDir . '/maxmind/web-service-common/src/Exception'),
+    'MaxMind\\Db\\' => array($vendorDir . '/maxmind-db/reader/src/MaxMind/Db'),
+    'Lonban\\Ooctober\\' => array($baseDir . '/ooctober'),
+    'Lonban\\Llaravel\\' => array($baseDir . '/llaravel'),
+    'GeoIp2\\' => array($vendorDir . '/geoip2/geoip2/src'),
+    'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
 );

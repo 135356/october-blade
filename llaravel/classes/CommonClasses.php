@@ -1,6 +1,6 @@
 <?php
 
-namespace Longbang\Llaravel\Classes;
+namespace Lonban\Llaravel\Classes;
 
 class CommonClasses
 {

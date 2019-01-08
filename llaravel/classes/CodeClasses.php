@@ -1,8 +1,6 @@
 <?php
 
-namespace Longbang\Llaravel\Classes;
-
-use Longbang\Llaravel\Classes\CommonClasses;
+namespace Lonban\Llaravel\Classes;
 
 class CodeClasses extends CommonClasses
 {

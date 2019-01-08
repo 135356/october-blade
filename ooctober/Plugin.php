@@ -1,4 +1,4 @@
-<?php namespace Longbang\Ooctober;
+<?php namespace Lonban\Ooctober;
 
 use System\Classes\PluginBase;
 

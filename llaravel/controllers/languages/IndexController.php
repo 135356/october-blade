@@ -1,13 +1,13 @@
 <?php
 
-namespace Longbang\Llaravel\Controllers\Languages;
+namespace Lonban\Llaravel\Controllers\Languages;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
-use Longbang\Llaravel\Classes\VcPathClasses;
-use Longbang\Llaravel\Classes\CsvClasses;
-use Longbang\Llaravel\Introduce\CCLanguages as CCSHOP;
-use Longbang\Llaravel\Controllers\CommonController;
+use Lonban\Llaravel\Classes\VcPathClasses;
+use Lonban\Llaravel\Classes\CsvClasses;
+use Lonban\Llaravel\Introduce\CCLanguages as CCSHOP;
+use Lonban\Llaravel\Controllers\CommonController;
 
 class IndexController extends CommonController
 {

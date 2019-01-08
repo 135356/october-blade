@@ -1,6 +1,6 @@
 <?php
 
-use Longbang\Llaravel\Classes\VcPathClasses;
+use Lonban\Llaravel\Classes\VcPathClasses;
 
 define('VC_NAME',VcPathClasses::obj()->DIR);
 /*命名:longbang\llaravel\Controllers{$str}*/

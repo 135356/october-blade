@@ -1,10 +1,9 @@
 <?php
 
-namespace Longbang\Llaravel\Controllers;
+namespace Lonban\Llaravel\Controllers;
 
-use Longbang\Llaravel\Controllers\CommonController;
-use Longbang\Llaravel\Classes\LanguageClasses;
-use Longbang\Llaravel\Introduce\CCLanguages as CCSHOP;
+use Lonban\Llaravel\Classes\LanguageClasses;
+use Lonban\Llaravel\Introduce\CCLanguages as CCSHOP;
 
 class LanguageController extends CommonController
 {

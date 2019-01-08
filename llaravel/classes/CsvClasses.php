@@ -1,11 +1,9 @@
 <?php
 
-namespace Longbang\Llaravel\Classes;
+namespace Lonban\Llaravel\Classes;
 
 use Illuminate\Support\Facades\Storage;
-use Longbang\Llaravel\Classes\CodeClasses;
-use Longbang\Llaravel\Classes\VcPathClasses;
-use Longbang\Llaravel\Classes\CommonClasses;
+use Lonban\Llaravel\Classes\VcPathClasses;
 
 class CsvClasses extends CommonClasses
 {

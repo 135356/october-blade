@@ -1,12 +1,12 @@
 <?php
 
-namespace Longbang\Llaravel\Components;
+namespace Lonban\Llaravel\Components;
 
 use Cms\Classes\CodeBase;
 use Cms\Classes\ComponentBase;
 use Illuminate\Support\Facades\URL;
-use Longbang\Llaravel\Controllers\AreaController;
-use Longbang\Llaravel\Controllers\LanguageController;
+use Lonban\Llaravel\Controllers\AreaController;
+use Lonban\Llaravel\Controllers\LanguageController;
 
 class VcComponents extends ComponentBase
 {

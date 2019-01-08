@@ -1,22 +1,22 @@
 <?php include_once(__DIR__.'/config.php');
 
-use Longbang\Llaravel\Classes\VcPathClasses;
-use Longbang\Llaravel\Controllers\LanguageController;
+use Lonban\Llaravel\Classes\VcPathClasses;
+use Lonban\Llaravel\Controllers\LanguageController;
 
 //百度扩展
-Route::group(['prefix'=>'baidu','namespace'=>vcNamespace(),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
+Route::group(['prefix'=>'baidu','namespace'=>vcNamespace(),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Lonban\Llaravel\Middleware\BackendSignIn::class']],function(){
     //按各个不同的语言译iso标准库国家名称为对应的语言，并保存为iso639_3166_2.csv
     Route::get('/trans','BaiduController@trans');
 });
 
 //实际对应如：http://aaa.a/Pv4QZMrjaswXxkCG/llaravel/aaa
-Route::get(vcRoute('aaa'), 'Longbang\Llaravel\Controllers\Languages\IndexController@aaa');
+Route::get(vcRoute('aaa'), 'Lonban\Llaravel\Controllers\Languages\IndexController@aaa');
 Route::get('file', function(){
-    //$a = new \Longbang\Llaravel\Classes\FileClasses();$a->newFile();
+    //$a = new \Lonban\Llaravel\Classes\FileClasses();$a->newFile();
 });
 
 /*多语言相关（后台视图功能）*/
-Route::group(['prefix'=>vcRoute('languages'),'namespace'=>vcNamespace('languages'),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Longbang\Llaravel\Middleware\BackendSignIn::class']],function(){
+Route::group(['prefix'=>vcRoute('languages'),'namespace'=>vcNamespace('languages'),'middleware'=>['\Illuminate\Cookie\Middleware\EncryptCookies::class','Lonban\Llaravel\Middleware\BackendSignIn::class']],function(){
     Route::get('/','IndexController@index');
     /*修改语言*/
     Route::post('up_language/{id}','IndexController@upLanguage');

@@ -1,10 +1,8 @@
 <?php
 
-namespace Longbang\Llaravel\Classes;
+namespace Lonban\Llaravel\Classes;
 
-use Longbang\Llaravel\Classes\CommonClasses;
-use Longbang\Llaravel\Classes\GeoIp2Classes;
-use Longbang\Llaravel\Introduce\CCLanguages as CCSHOP;
+use Lonban\Llaravel\Introduce\CCLanguages as CCSHOP;
 
 class LanguageClasses extends CommonClasses
 {

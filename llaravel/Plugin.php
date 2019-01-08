@@ -1,7 +1,7 @@
-<?php namespace Longbang\Llaravel;
+<?php namespace Lonban\Llaravel;
 
 use System\Classes\PluginBase;
-use Longbang\Llaravel\Classes\VcPathClasses;
+use Lonban\Llaravel\Classes\VcPathClasses;
 
 class Plugin extends PluginBase
 {

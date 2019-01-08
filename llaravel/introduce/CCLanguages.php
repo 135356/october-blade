@@ -1,10 +1,10 @@
 <?php
 
-namespace Longbang\Llaravel\Introduce;
+namespace Lonban\Llaravel\Introduce;
 
 use Illuminate\Support\Facades\Storage;
-use Longbang\Ooctober\Models\Multilanguage;
-use Longbang\Llaravel\Classes\CommonClasses;
+use Lonban\Ooctober\Models\Multilanguage;
+use Lonban\Llaravel\Classes\CommonClasses;
 
 /*在改变ccshop功能扩展的时候只需要修改这一个文件以兼容*/
 class CCLanguages extends CommonClasses

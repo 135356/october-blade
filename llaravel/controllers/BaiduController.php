@@ -1,11 +1,10 @@
 <?php
 
-namespace Longbang\Llaravel\Controllers;
+namespace Lonban\Llaravel\Controllers;
 
-use Longbang\Llaravel\Controllers\CommonController;
-use Longbang\Llaravel\Classes\BaiduTransapiClasses;
-use Longbang\Llaravel\Classes\CsvClasses;
-use Longbang\Llaravel\Classes\VcPathClasses;
+use Lonban\Llaravel\Classes\BaiduTransapiClasses;
+use Lonban\Llaravel\Classes\CsvClasses;
+use Lonban\Llaravel\Classes\VcPathClasses;
 
 class BaiduController extends CommonController
 {

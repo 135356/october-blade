@@ -1,9 +1,8 @@
 <?php
 
-namespace Longbang\Llaravel\Classes;
+namespace Lonban\Llaravel\Classes;
 
-use Longbang\Llaravel\Classes\CommonClasses;
-use Longbang\Llaravel\Classes\VcPathClasses;
+use Lonban\Llaravel\Classes\VcPathClasses;
 use GeoIp2\Database\Reader;
 
 class GeoIp2Classes extends CommonClasses

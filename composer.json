@@ -1,19 +1,22 @@
 {
-    "name": "longbang/octobercms_blade",
+    "name": "lonban/october-blade",
     "description": "OctoberCMS下使用blade视图扩展包",
     "keywords": ["龙邦","OctoberCMS","blade"],
     "license": "Apache-2.0",
+    "type": "october-plugin",
     "authors":[{
-        "name":"Long Bang",
+        "name":"Lon Ban",
         "email":"454595025@qq.com"
     }],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "geoip2/geoip2": "~2.0",
+        "json/ccshop": "~1.0"
     },
     "autoload": {
         "psr-4":{
-            "Llaravel\\": "llaravel/",
-            "Ooctober\\": "ooctober/"
+            "Lonban\\Llaravel\\": "llaravel/",
+            "Lonban\\Ooctober\\": "ooctober/"
         }
     }
 }
