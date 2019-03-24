@@ -2,7 +2,7 @@
     "name": "lonban/october-blade",
     "description": "OctoberCMS下使用blade视图扩展包",
     "keywords": ["龙邦","OctoberCMS","blade"],
-    "license": "Apache-2.0",
+    "license": "MIT",
     "type": "october-plugin",
     "authors":[{
         "name":"Lon Ban",

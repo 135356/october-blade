@@ -1,19 +1,22 @@
 # october_blade
-octoberCms 的theme视图模块翻译功能加强
+主要功能为 自动识别匹配语言货币，翻译功能的加强
 
-## 软件架构
-october/october ~1.0
+## 框架
+依赖octoberCMS ~1.0 安装方式参考：https://github.com/octobercms/october
 
-## 安装教程
-    1. composer require lonban/october_blade
-    2. \storage\app\LongBang\geoIp内的大型数据下载地址：https://pan.baidu.com/s/1-DJ8LW1sSf5y8K6VBmZ_vQ
+## 安装说明
+    1. 将php添加到环境变量，正确安装composer，正确的安装octoberCMS
+    2. 进入到octoberCMS项目根目录，运行命令：composer require lonban/october_blade
+    3. 一些大的资源文件下载地址：https://pan.baidu.com/s/1-DJ8LW1sSf5y8K6VBmZ_vQ 下载后解压放到octoberCMS根目录\storage\app\LongBang\geoIp
+    4. 如果报错请将octoberCMS根目录\plugins\lonban\october-blade\composer.json里的"json/ccshop": "~1.0"依赖去掉，因为它是闭源项目
 
 ## 使用说明
 
 #### 多语言：
     ---
     使用示例： http://网站域名/languages/setLanguage?匹配方式
-    测试示例： http://网站域名/languages/setLanguage?匹配方式&test=1
+    测试示例(可以看到切换结果)： http://网站域名/languages/setLanguage?匹配方式&test=1
+    完整示例(切换语言为en-货币为us，并查看切换结果)：http://localhost/languages/setLanguage?language=en-us&test=1
     匹配方式的说明：
         示例：http://aaa.a/languages/setLanguage?language=en-us
         现在使用的示例：https://网站域名/?locale=zh-cn用的是输入语言代码进行匹配的方式(要改多语言路由)
