@@ -1,6 +1,6 @@
 {
     "name": "lonban/october-blade",
-    "description": "OctoberCMS下使用blade视图扩展包",
+    "description": "octoberCMS多语言扩展包",
     "keywords": ["龙邦","OctoberCMS","blade"],
     "license": "MIT",
     "type": "october-plugin",
